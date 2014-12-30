@@ -10,7 +10,7 @@ require_once __DIR__ . '/../Lib/StoreDriver/File.php';
 use \Lib\Store;
 
 // 文件存储驱动，删除文件
-if(\Config\Store::$driver = \Config\Store::DRIVER_FILE)
+if(\Config\Store::$driver == \Config\Store::DRIVER_FILE)
 {
     Store::instance('gateway')->destroy();
 }
