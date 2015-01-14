@@ -16,6 +16,12 @@ pthreads下载下载页面： [http://windows.php.net/downloads/pecl/releases/pt
 =======
   * 打开workerman-MT的文件夹，双击start.bat 即可启动
 
+访问
+=======
+浏览器访问 htt://your_ip:55151  
+your_ip 是运行workerman服务端器的ip
+
+
 停止
 ======
   * 启动后看到一个终端界面，按ctrl+c停止服务；或者点击右上角关闭图标停止服务
