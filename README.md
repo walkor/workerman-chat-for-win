@@ -18,7 +18,7 @@ pthreads下载下载页面： [http://windows.php.net/downloads/pecl/releases/pt
 
 访问
 =======
-浏览器访问 htt://your_ip:55757  
+浏览器访问 htt://your_ip:55151  
 your_ip 是运行workerman服务端器的ip
 
 
