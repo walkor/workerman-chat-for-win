@@ -12,10 +12,10 @@ GatewayWorker框架文档：http://gatewayworker-doc.workerman.net/
  * 私聊支持
  * 掉线自动重连
  * 支持多服务器部署
- * 业务逻辑全部在一个文件中，快速入门可以参考这个文件[Applications/Chat/Event.php](https://github.com/walkor/workerman-chat/blob/master/Applications/Chat/Event.php)   
+ * 业务逻辑全部在一个文件中，快速入门可以参考这个文件[Applications/Chat/Event.php](https://github.com/walkor/workerman-chat-for-win/blob/master/Applications/Chat/Event.php)   
 
- 安装
- =====
+安装
+=====
 无需安装，只要php环境ok即可运行。
 
 要求 php>=5.3.3 并且配置好了php环境变量
@@ -35,7 +35,6 @@ ctrl+c 停止
 注意：  
 =======
 windows系统下无法使用 stop reload status 等命令  
-如果无法打开页面请尝试关闭服务器防火墙  
 
 测试
 =======
