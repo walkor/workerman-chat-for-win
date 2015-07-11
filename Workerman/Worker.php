@@ -34,7 +34,7 @@ class Worker
      * 版本号
      * @var string
      */
-    const VERSION = '3.1.7';
+    const VERSION = '3.1.8';
     
     /**
      * 状态 启动中
@@ -394,7 +394,8 @@ class Worker
             // win不支持同一个页面执初始化多个worker
             if(count(self::$_workers) > 1)
             {
-                echo "@@@multi workers init in one php file are not support@@@\r\n";
+                echo "@@@ Error: multi workers init in one php file are not support @@@\r\n";
+                echo "@@@ Please visit http://wiki.workerman.net/Multi_woker_for_win @@@\r\n";
             }
             elseif(count(self::$_workers) <= 0)
             {
@@ -753,6 +754,7 @@ class Worker
         ConnectionInterface::$statistics['connection_count']++;
         // 初始化连接对象
         $connection = new TcpConnection($new_socket);
+        $this->connections[$connection->id] = $connection;
         $connection->worker = $this;
         $connection->protocol = $this->_protocol;
         $connection->onMessage = $this->onMessage;
@@ -760,7 +762,6 @@ class Worker
         $connection->onError = $this->onError;
         $connection->onBufferDrain = $this->onBufferDrain;
         $connection->onBufferFull = $this->onBufferFull;
-        $this->connections[(int)$new_socket] = $connection;
         
         // 如果有设置连接回调，则执行
         if($this->onConnect)
