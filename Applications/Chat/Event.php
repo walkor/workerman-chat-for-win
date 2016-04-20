@@ -37,7 +37,6 @@ class Event
    {
         // debug
         echo "client:{$_SERVER['REMOTE_ADDR']}:{$_SERVER['REMOTE_PORT']} gateway:{$_SERVER['GATEWAY_ADDR']}:{$_SERVER['GATEWAY_PORT']}  client_id:$client_id session:".json_encode($_SESSION)." onMessage:".$message."\n";
-        //var_dump('---------', Gateway::getAllClientCount(), Gateway::getAllClientInfo(), Gateway::getClientCountByGroup(1), Gateway::getClientInfoByGroup(1));
         
         // 客户端传递的是json数据
         $message_data = json_decode($message, true);

@@ -27,7 +27,6 @@ $worker->name = 'ChatBusinessWorker';
 $worker->count = 4;
 // 服务注册地址
 $worker->registerAddress = '127.0.0.1:1236';
-$worker->secretKey = '1234';
 
 // 如果不是在根目录启动，则运行runAll方法
 if(!defined('GLOBAL_START'))

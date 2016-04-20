@@ -36,7 +36,7 @@ $gateway->pingInterval = 10;
 $gateway->pingData = '{"type":"ping"}';
 // 服务注册地址
 $gateway->registerAddress = '127.0.0.1:1236';
-$gateway->secretKey = '1234';
+
 /* 
 // 当客户端连接上来时，设置连接的onWebSocketConnect，即在websocket握手时的回调
 $gateway->onConnect = function($connection)
