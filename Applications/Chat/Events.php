@@ -27,17 +27,6 @@ use \GatewayWorker\Lib\Gateway;
 
 class Events
 {
-    
-    public static function onWorkerStart($businessworker)
-    {
-        echo "worker start\n";
-    }
-    
-    public static function onWorkerStop($businessworker)
-    {
-        echo "worker stop\n";
-    }
-   
    /**
     * 有消息时
     * @param int $client_id
