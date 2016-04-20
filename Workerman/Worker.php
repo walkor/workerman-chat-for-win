@@ -12,7 +12,8 @@
  * @license http://www.opensource.org/licenses/mit-license.php MIT License
  */
 namespace Workerman;
-ini_set('display_errors', 'on');
+
+require_once __DIR__ . '/Lib/Constants.php';
 
 use \Workerman\Events\Libevent;
 use \Workerman\Events\Select;
@@ -34,7 +35,7 @@ class Worker
      * 版本号
      * @var string
      */
-    const VERSION = '3.2.5';
+    const VERSION = '3.3.2';
     
     /**
      * 状态 启动中
@@ -353,6 +354,10 @@ class Worker
      */
     public static function init()
     {
+        if(strpos(strtolower(PHP_OS), 'win') !== 0)
+        {
+            exit("workerman-for-win can not run in linux\n");
+        }
         $backtrace = debug_backtrace();
         self::$_startFile = $backtrace[count($backtrace)-1]['file'];
         // 没有设置日志文件，则生成一个默认值
@@ -668,7 +673,7 @@ class Worker
         {
             $socket   = socket_import_stream($this->_mainSocket );
             @socket_set_option($socket, SOL_SOCKET, SO_KEEPALIVE, 1);
-            @socket_set_option($socket, SOL_SOCKET, TCP_NODELAY, 1);
+            @socket_set_option($socket, SOL_TCP, TCP_NODELAY, 1);
         }
         
         // 设置非阻塞
@@ -767,7 +772,7 @@ class Worker
         $new_socket = stream_socket_accept($socket, 0);
         
         // 惊群现象，忽略
-        if(false === $new_socket)
+        if(!$new_socket)
         {
             return;
         }

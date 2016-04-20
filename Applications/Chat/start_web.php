@@ -17,6 +17,7 @@ use \GatewayWorker\Gateway;
 use \GatewayWorker\BusinessWorker;
 use \Workerman\Autoloader;
 
+
 // 自动加载类
 require_once __DIR__ . '/../../Workerman/Autoloader.php';
 Autoloader::setRootPath(__DIR__);
@@ -27,6 +28,17 @@ $web = new WebServer("http://0.0.0.0:55151");
 $web->count = 2;
 // 设置站点根目录
 $web->addRoot('www.your_domain.com', __DIR__.'/Web');
+$web->onWorkerStart = function()
+{
+    \GatewayWorker\Lib\Gateway::$secretKey = '1234';
+    Workerman\Lib\Timer::add(5, function(){
+	    \GatewayWorker\Lib\Gateway::sendToAll('haha');
+        \GatewayWorker\Lib\Gateway::sendToGroup(1, 'G1haha');
+		var_dump($ret = \GatewayWorker\Lib\Gateway::getAllClientInfo());
+		var_dump(\GatewayWorker\Lib\Gateway::isOnline(key($ret)));
+		var_dump(\GatewayWorker\Lib\Gateway::sendToclient(key($ret), 'key1'));
+	});
+};
 
 
 // 如果不是在根目录启动，则运行runAll方法
