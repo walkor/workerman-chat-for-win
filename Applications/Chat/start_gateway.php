@@ -16,8 +16,7 @@ use \GatewayWorker\Gateway;
 use \Workerman\Autoloader;
 
 // 自动加载类
-require_once __DIR__ . '/../../Workerman/Autoloader.php';
-Autoloader::setRootPath(__DIR__);
+require_once __DIR__ . '/../../vendor/autoload.php';
 
 // gateway 进程
 $gateway = new Gateway("Websocket://0.0.0.0:7272");
