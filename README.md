@@ -16,7 +16,10 @@ GatewayWorker框架文档：http://www.workerman.net/gatewaydoc/
 
 安装
 =====
-无需安装，只要php环境ok即可运行。
+
+下载 或者 clone 代码到本地
+
+进入到代码目录，运行 ```composer install``` 安装
 
 要求 php>=5.3.3 并且配置好了php环境变量
 
