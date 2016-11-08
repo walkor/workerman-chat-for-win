@@ -13,8 +13,11 @@
 
   <script type="text/javascript">
     if (typeof console == "undefined") {    this.console = { log: function (msg) {  } };}
+    // 如果浏览器不支持websocket，会使用这个flash模拟websocket协议
     WEB_SOCKET_SWF_LOCATION = "/swf/WebSocketMain.swf";
+    // 开启flash的websocket debug
     WEB_SOCKET_DEBUG = true;
+	  
     var ws, name, client_list={};
 
     // 连接服务端
