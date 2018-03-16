@@ -1,3 +1,6 @@
+## 本项目停止更新
+**https://github.com/walkor/workerman-chat 已经支持windows系统，此项目不再更新**
+
 workerman-chat
 =======
 基于workerman的GatewayWorker框架开发的一款高性能支持分布式部署的聊天室系统。
